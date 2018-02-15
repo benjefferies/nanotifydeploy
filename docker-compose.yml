@@ -1,0 +1,18 @@
+version: '3'
+services:
+  nanotifyaccount:
+    image: "benjjefferies/nanonotifyaccount:dockerise"
+    ports:
+     - "5000:5000"
+    environment:
+    - RECAPTCHA_SECRET=${RECAPTCHA_SECRET}
+    - DATABASE_URL=sqlite:///var/test.db
+    volumes:
+    - ./:/var/
+  nanotify:
+    image: "benjjefferies/nanonotifier:dockerise"
+    environment:
+    - EMAIL_ENABLED=True
+    - DB_URL=sqlite:///var/test.db
+    volumes:
+    - ./:/var/

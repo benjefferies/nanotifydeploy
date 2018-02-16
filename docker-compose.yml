@@ -8,7 +8,7 @@ services:
     - RECAPTCHA_SECRET=${RECAPTCHA_SECRET}
     - DATABASE_URL=sqlite:////var/test.db
     volumes:
-    - ./:/var/
+    - ../:/var/
   nanotify:
     image: "benjjefferies/nanonotifier"
     environment:
@@ -20,5 +20,5 @@ services:
     - TIMEOUT=5
     - RAIBLOCKS_HOST=[::1]
     volumes:
-    - ./:/var/
+    - ../:/var/
     network_mode: host

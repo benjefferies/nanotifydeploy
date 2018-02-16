@@ -18,7 +18,7 @@ services:
     - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
     - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
     - TIMEOUT=5
-    - HOST=[::1]
+    - RAIBLOCKS_HOST=[::1]
     volumes:
     - ./:/var/
     network_mode: host

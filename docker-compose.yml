@@ -1,18 +1,22 @@
 version: '3'
 services:
   nanotifyaccount:
-    image: "benjjefferies/nanonotifyaccount:dockerise"
+    image: "benjjefferies/nanonotifyaccount"
     ports:
      - "5000:5000"
     environment:
     - RECAPTCHA_SECRET=${RECAPTCHA_SECRET}
-    - DATABASE_URL=sqlite:///var/test.db
+    - DATABASE_URL=sqlite:////var/test.db
     volumes:
     - ./:/var/
   nanotify:
-    image: "benjjefferies/nanonotifier:dockerise"
+    image: "benjjefferies/nanonotifier"
     environment:
     - EMAIL_ENABLED=True
-    - DB_URL=sqlite:///var/test.db
+    - DATABASE_URL=sqlite:////var/test.db
+    - BCRYPT_SECRET=${BCRYPT_SECRET}
+    - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+    - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+    - TIMEOUT=5
     volumes:
     - ./:/var/

@@ -20,3 +20,4 @@ services:
     - TIMEOUT=5
     volumes:
     - ./:/var/
+    network_mode: host

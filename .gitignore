@@ -1,2 +1,7 @@
 .env
 .idea/
+ssl/
+data.ldb
+data.ldb.lock
+log/
+backup/

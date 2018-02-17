@@ -2,6 +2,6 @@
 .idea/
 ssl/
 data.ldb
-data.ldb.lock
+data.ldb-lock
 log/
 backup/

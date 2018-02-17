@@ -2,13 +2,14 @@ version: '3'
 services:
   nanotifyaccount:
     image: "benjjefferies/nanonotifyaccount"
-    ports:
-     - "5000:5000"
     environment:
     - RECAPTCHA_SECRET=${RECAPTCHA_SECRET}
     - DATABASE_URL=sqlite:////var/test.db
+    ports:
+    - "5000:5000"
     volumes:
     - ../:/var/
+    restart: always
   nanotify:
     image: "benjjefferies/nanonotifier"
     environment:
@@ -22,3 +23,20 @@ services:
     volumes:
     - ../:/var/
     network_mode: host
+    restart: always
+  caddy:
+    image: "abiosoft/caddy"
+    ports:
+    - "443:443"
+    - "80:80"
+    volumes:
+    - ./caddy:/etc/
+    - $HOME/.caddy:/root/.caddy
+    restart: always
+  nano:
+    image: "nanocurrency/nano"
+    volumes:
+    - ./nano:/root
+    restart: always
+    ports:
+    - "7076:7076"

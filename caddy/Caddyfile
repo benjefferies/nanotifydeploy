@@ -1,0 +1,8 @@
+*.nanonotify.co, nanonotify.co, nanotify.co, *.nanotify.co
+proxy / nanotifyaccount:5000 {
+    transparent
+}
+
+tls {
+    max_certs 1000
+}

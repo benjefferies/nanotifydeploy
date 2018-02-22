@@ -10,6 +10,10 @@ services:
     volumes:
     - ../:/var/
     restart: always
+    logging:
+        driver: json-file
+        options:
+            max-size: 50m
   nanotify:
     image: "benjjefferies/nanonotifier"
     environment:
@@ -24,6 +28,10 @@ services:
     - ../:/var/
     network_mode: host
     restart: always
+    logging:
+        driver: json-file
+        options:
+            max-size: 50m
   caddy:
     image: "abiosoft/caddy"
     ports:
@@ -34,6 +42,10 @@ services:
     - $HOME/.caddy:/.caddy
     - /etc/ssl/certs/:/etc/ssl/certs/
     restart: always
+    logging:
+        driver: json-file
+        options:
+            max-size: 50m
   nano:
     image: "nanocurrency/nano"
     volumes:
@@ -41,3 +53,7 @@ services:
     restart: always
     ports:
     - "7076:7076"
+    logging:
+        driver: json-file
+        options:
+            max-size: 50m

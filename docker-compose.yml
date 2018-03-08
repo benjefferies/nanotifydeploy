@@ -25,6 +25,8 @@ services:
     - TIMEOUT=5
     - RAIBLOCKS_HOST=[::1]
     - WEBHOOK_ENABLED=True
+    - FCM_API_KEY=${FCM_API_KEY}
+    - FCM_ENABLED=True
     volumes:
     - ../:/var/
     network_mode: host

@@ -10,6 +10,7 @@ services:
     volumes:
     - ../:/var/
     restart: always
+    network_mode: host
     logging:
         driver: json-file
         options:
@@ -18,6 +19,7 @@ services:
     image: "benjjefferies/nanonotifier"
     environment:
     - EMAIL_ENABLED=True
+    - FCM_ENABLED=True
     - DATABASE_URL=sqlite:////var/test.db
     - BCRYPT_SECRET=${BCRYPT_SECRET}
     - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
@@ -25,6 +27,7 @@ services:
     - TIMEOUT=5
     - RAIBLOCKS_HOST=[::1]
     - WEBHOOK_ENABLED=True
+    - FCM_API_KEY=${FCM_API_KEY}
     volumes:
     - ../:/var/
     network_mode: host
@@ -38,11 +41,15 @@ services:
     ports:
     - "443:443"
     - "80:80"
+    environment:
+    - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+    - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
     volumes:
     - ./caddy:/etc/
     - $HOME/.caddy:/.caddy
     - /etc/ssl/certs/:/etc/ssl/certs/
     restart: always
+    network_mode: host
     logging:
         driver: json-file
         options:

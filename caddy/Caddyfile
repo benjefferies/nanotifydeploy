@@ -1,5 +1,9 @@
-*.nanonotify.co, nanonotify.co, nanotify.co, *.nanotify.co
-proxy / nanotifyaccount:5000 {
+nanonotify.co, www.nanonotify.co {
+    redir https://nanotify.co
+}
+
+nanotify.co, www.nanotify.co
+proxy / localhost:5000 {
     transparent
 }
 

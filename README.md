@@ -1,2 +1,2 @@
 # nanotifydeploy
-Docker compose deployment for https://nanotify.co
+Docker compose deployment for https://nanotify.me

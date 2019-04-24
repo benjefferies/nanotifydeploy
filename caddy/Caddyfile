@@ -1,8 +1,4 @@
-nanonotify.co, *.nanonotify.co {
-    redir https://nanotify.co
-}
-
-nanotify.co, *.nanotify.co
+nanotify.me, *.nanotify.me
 proxy / nanotifyaccount:5000 {
     transparent
 }
